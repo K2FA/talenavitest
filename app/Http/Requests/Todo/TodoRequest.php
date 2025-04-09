@@ -26,7 +26,7 @@ class TodoRequest extends FormRequest
             'assignee' => ['nullable', 'string'],
             'due_date' => ['required', 'date', 'after_or_equal:today'],
             'time_tracked' => ['required', 'numeric'],
-            'status' => ['required', 'string', 'in:pending,open,in_progress,completed'],
+            'status' => ['nullable', 'in:pending,open,in_progress,completed'],
             'priority' => ['required', 'in:low,medium,high'],
         ];
     }
