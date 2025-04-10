@@ -1,12 +1,12 @@
 <table>
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Assignee</th>
-            <th>Due Date</th>
-            <th>Time Tracked</th>
-            <th>Status</th>
-            <th>Priority</th>
+            <th> <strong>Title</strong></th>
+            <th> <strong>Assignee</strong></th>
+            <th> <strong>Due Date</strong></th>
+            <th> <strong>Time Tracked</strong></th>
+            <th> <strong>Status</strong></th>
+            <th> <strong>Priority</strong> </th>
         </tr>
     </thead>
     <tbody>
