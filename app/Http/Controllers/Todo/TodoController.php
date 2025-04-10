@@ -24,18 +24,14 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $todo_request)
     {
-        try {
-            $todo = $this->todoService->store($todo_request);
-            return response()->json([
-                'message' => "Todo created successfully",
-                'data' => $todo
-            ], 201);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => "Failed to save todo, please try again later.",
-                'error' => $e->getMessage()
-            ], 500);
-        }
+        // Validate the request using the TodoRequest class and send it to the service
+        // to create a new Todo item.
+        $todo = $this->todoService->store($todo_request);
+
+        return response()->json([
+            'message' => "Todo created successfully",
+            'data' => $todo
+        ], 201);
     }
 
     /**

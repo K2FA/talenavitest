@@ -9,16 +9,16 @@ use Illuminate\Support\Facades\Log;
 
 class TodoService
 {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param TodoRequest $todo_request
+     * @return Todo
+     * @throws Exception
+     */
     public function store(TodoRequest $todo_request): Todo
     {
-        try {
-            return Todo::create($todo_request->validated());
-        } catch (Exception $e) {
-            Log::error("Error creating todo: ", [
-                'error' => $e->getMessage(),
-                'request' => $todo_request,
-            ]);
-            throw new Exception("Failed to save todo, please try again later.");
-        }
+        // Helper function to create a new Todo item
+        return Todo::create($todo_request->validated());
     }
 }
