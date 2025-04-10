@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Todo;
 
+use App\Enums\Enums\TodoPriority;
+use App\Enums\TodoStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TodoRequest extends FormRequest
 {
@@ -27,8 +30,8 @@ class TodoRequest extends FormRequest
             'assignee' => ['nullable', 'string'],
             'due_date' => ['required', 'date', 'after_or_equal:today'],
             'time_tracked' => ['required', 'numeric'],
-            'status' => ['nullable', 'in:pending,open,in_progress,completed'],
-            'priority' => ['required', 'in:low,medium,high'],
+            'status' => ['nullable', Rule::in(TodoStatus::values())],
+            'priority' => ['required', Rule::in(TodoPriority::values())],
         ];
     }
 }

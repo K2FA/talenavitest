@@ -22,8 +22,39 @@ class TodoService
         return Todo::create($todo_request->validated());
     }
 
-    public function chart($type): string
+    public function chart_enum($type, $all_enum)
     {
-        return $type;
+        $summary  = Todo::select($type)
+            ->selectRaw('count(*) as total')
+            ->groupby($type)
+            ->pluck('total', $type);
+
+        $all_data = [];
+        foreach ($all_enum as $enum) {
+            $all_data[$enum] = $summary[$enum] ?? 0;
+        }
+
+        return $all_data;
+    }
+
+
+    public function chart_assignee($type)
+    {
+        $todos = Todo::select($type, 'status', 'time_tracked')
+            ->whereNotNull('assignee')
+            ->get()
+            ->groupBy($type);
+
+        $summary = [];
+
+        foreach($todos as $assignee => $tasks) {
+            $summary[$assignee] = [
+                'total_todos' => $tasks->count(),
+                'total_pending_todos' => $tasks->where('status', 'pending')->count(),
+                'total_timetracked_completed_todos' => $tasks->where('status', 'completed')->sum('time_tracked'),
+            ];
+        }
+
+        return $summary;
     }
 }

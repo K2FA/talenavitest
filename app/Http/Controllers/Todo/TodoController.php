@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Todo;
 
+use App\Enums\Enums\TodoPriority;
+use App\Enums\TodoStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Todo\TodoRequest;
 use App\Models\Todo\Todo;
@@ -40,29 +42,27 @@ class TodoController extends Controller
         $type = $request->query('type');
 
         if ($type === "status") {
-            $status_summary = Todo::select($type)
-                ->selectRaw('count(*) as total')
-                ->groupby('status')
-                ->pluck('total', 'status');
-
-            // $allStatus = Todo::select($type)
-            //     ->distinct()
-            //     ->pluck('status');
-
-            $all_status = [
-                'pending',
-                'open',
-                'in_progress',
-                'completed'
-            ];
-            $status_data = [];
-            foreach ($all_status as $status) {
-                $status_data[$status] = $status_summary[$status] ?? 0;
-            }
+            $status_data = $this->todoService->chart_enum($type, TodoStatus::values());
 
             return response()->json([
                 'status_summary' => $status_data,
             ], 200);
+        }
+
+        if ($type === "priority") {
+            $priority_data = $this->todoService->chart_enum($type, TodoPriority::values());
+
+            return response()->json([
+                'priority_summary' => $priority_data,
+            ], 200);
+        }
+
+        if($type === 'assignee') {
+            $assignee_data = $this->todoService->chart_assignee('assignee');
+
+            return response()->json([
+                'assignee_summary' => $assignee_data,
+            ],200);
         }
 
         return response()->json([
