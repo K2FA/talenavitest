@@ -21,4 +21,9 @@ class TodoService
         // Helper function to create a new Todo item
         return Todo::create($todo_request->validated());
     }
+
+    public function chart($type): string
+    {
+        return $type;
+    }
 }

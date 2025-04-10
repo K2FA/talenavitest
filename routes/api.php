@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::apiResource('todo', TodoController::class)->only([
-    'index',
-    'store',
-    'show',
-    'update',
-    'destroy'
-]);
+Route::post('/todo', [TodoController::class, 'store'])->name('todo.store');
+
+Route::get('/chart', [TodoController::class, 'chart'])->name('chart');

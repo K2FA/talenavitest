@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\Enums\TodoPriority;
+use App\Enums\TodoStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,8 +19,8 @@ return new class extends Migration
             $table->string('assignee')->nullable();
             $table->date('due_date');
             $table->decimal('time_tracked', 8, 2)->default(0);
-            $table->enum('status', ['pending', 'open', 'in_progress', 'completed'])->default('pending');
-            $table->enum('priority', ['low', 'medium', 'high']);
+            $table->enum('status', TodoStatus::values())->default(TodoStatus::PENDING->value);
+            $table->enum('priority', TodoPriority::values());
             $table->timestamps();
         });
     }
