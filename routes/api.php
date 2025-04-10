@@ -11,3 +11,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('/todo', [TodoController::class, 'store'])->name('todo.store');
 
 Route::get('/chart', [TodoController::class, 'chart'])->name('chart');
+
+Route::get("/todo/export", [TodoController::class, 'export'])->name('todo.export');

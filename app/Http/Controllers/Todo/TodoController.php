@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Todo;
 
 use App\Enums\Enums\TodoPriority;
 use App\Enums\TodoStatus;
+use App\Exports\TodoExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Todo\TodoRequest;
 use App\Models\Todo\Todo;
 use App\Services\Todo\TodoService;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TodoController extends Controller
 {
@@ -70,27 +72,16 @@ class TodoController extends Controller
         ], 400);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function export (Request $request)
     {
-        //
-    }
+        $todos = $this->todoService->exportExcel($request);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        $summary = [
+            'total_todos' => $todos->count(),
+            'total_time_tracked' => $todos->sum('time_tracked'),
+        ];
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return Excel::download(new TodoExport($todos, $summary), 'todo-report.xlsx');
+        // return response()->json(['status' => 'reached export method']);
     }
 }

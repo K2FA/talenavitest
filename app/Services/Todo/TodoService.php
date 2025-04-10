@@ -5,6 +5,7 @@ namespace App\Services\Todo;
 use App\Http\Requests\Todo\TodoRequest;
 use App\Models\Todo\Todo;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class TodoService
@@ -56,5 +57,34 @@ class TodoService
         }
 
         return $summary;
+    }
+
+
+    public function exportExcel(Request $request)
+    {
+        $query = Todo::query();
+
+        if($request->filled('title')) {
+            $query->where('title', 'like', '%'. $request->title . "%");
+        }
+        if ($request->filled('assignee')){
+            $query->whereIn('assignee', explode(",", $request->assignee));
+        }
+        if($request->filled('start')  && $request->filled('end')){
+            $query->whereBetween('due_date', [$request->start, $request->end]);
+        }
+        if($request->filled('min') && $request->filled('max')){
+            $query->whereBetween('time_tracked', [$request->min, $request->max]);
+        }
+        if($request->filled('status')){
+            $query->whereIn('status', explode(',', $request->status));
+        }
+        if($request->filled('priority')){
+            $query->whereIn('priority', explode(',', $request->priority));
+        }
+
+        $todos = $query->get();
+
+        return $todos;
     }
 }
