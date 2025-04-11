@@ -37,12 +37,13 @@ php artisan serve
 
 2. Add new request
 
-3. Change method `**POST**, **GET**, **DELETE**, **PUT**` (according what you want to test)
+3. Change method `POST`, `GET`, `DELETE`, `PUT` *(according what you want to test)*
 ```bash
 127.0.0.1:8000
 ```
 
 4. Add localhost server and url. `Example:`
 ```bash
+//Method POST
 127.0.0.1:8000/api/todo
 ```
