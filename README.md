@@ -49,8 +49,9 @@ php artisan serve
 ```
 
 ### Result
-![Create Todo](https://github.com/K2FA/talenavitest/blob/master/public/images/todo-post.png)
-![Status Chart](https://github.com/K2FA/talenavitest/blob/master/public/images/status-chart.png)
-![Priority Chart](https://github.com/K2FA/talenavitest/blob/master/public/images/priority-chart.png)
-![Assignee Chart](https://github.com/K2FA/talenavitest/blob/master/public/images/assignee-chart.png)
-![Export Excel](https://github.com/K2FA/talenavitest/blob/master/public/images/export-excel.png)
+![Create Todo](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/todo-post.png)  
+![Status Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/status-chart.png)  
+![Priority Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/priority-chart.png)  
+![Assignee Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/assignee-chart.png)  
+![Export Excel](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/export-excel.png)
+
