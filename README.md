@@ -32,17 +32,17 @@ php artisan migrate:fresh
 php artisan serve
 ```
 
-### Testing Result
+### Testing Postman
 1. Open postman and create new collection
 
 2. Add new request
 
-3. Change method '**POST**, **GET**, **DELETE**, **PUT**' (according what you want to test)
+3. Change method `**POST**, **GET**, **DELETE**, **PUT**` (according what you want to test)
 ```bash
 127.0.0.1:8000
 ```
 
-4. Add localhost server and url. Example:
+4. Add localhost server and url. `Example:`
 ```bash
 127.0.0.1:8000/api/todo
 ```
