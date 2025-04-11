@@ -49,9 +49,19 @@ php artisan serve
 ```
 
 ### Result
-![Create Todo](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/todo-post.png)  
-![Status Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/status-chart.png)  
-![Priority Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/priority-chart.png)  
-![Assignee Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/assignee-chart.png)  
+1. Create Todo List
+![Create Todo](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/todo-post.png)
+
+2. Excel Export with Filtering
 ![Export Excel](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/export-excel.png)
+
+3. Chart Data for type from todo data
+- Status Chart
+![Status Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/status-chart.png)  
+
+- Priority Chart
+![Priority Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/priority-chart.png)  
+
+- Assignee Chart
+![Assignee Chart](https://raw.githubusercontent.com/K2FA/talenavitest/main/public/images/assignee-chart.png)  
 
