@@ -44,6 +44,7 @@ php artisan serve
 
 4. Add localhost server and url. `Example:`
 ```bash
-//Method POST
+// Method POST
+
 127.0.0.1:8000/api/todo
 ```
