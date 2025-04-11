@@ -50,3 +50,7 @@ php artisan serve
 
 ### Result
 ![Create Todo](https://github.com/K2FA/talenavitest/blob/master/public/images/todo-post.png)
+![Status Chart](https://github.com/K2FA/talenavitest/blob/master/public/images/status-chart.png)
+![Priority Chart](https://github.com/K2FA/talenavitest/blob/master/public/images/priority-chart.png)
+![Assignee Chart](https://github.com/K2FA/talenavitest/blob/master/public/images/assignee-chart.png)
+![Export Excel](https://github.com/K2FA/talenavitest/blob/master/public/images/export-excel.png)
