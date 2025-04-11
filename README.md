@@ -47,3 +47,6 @@ php artisan serve
 # Method POST
 127.0.0.1:8000/api/todo
 ```
+
+### Result
+![Create Todo](https://github.com/K2FA/talenavitest/blob/master/public/images/todo-post.png)
